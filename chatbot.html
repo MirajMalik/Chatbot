@@ -92,14 +92,12 @@
     <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+
     <script type="text/babel">
       
-     // creating a function as a component 
-     // component name must start with capital letter
 
-
-
-     // ChatInput Component
+    // ChatInput Component
 
     function ChatInput({ chatMessages,setChatMessages }){
 
@@ -108,7 +106,8 @@
 
         function saveInputText(event){
             // event.target = gives us the element that we are typing in
-            setInputText(event.target.value);
+            const value = event.target.value;
+            setInputText(value);
         }
 
         function sendMessage(){
@@ -126,7 +125,7 @@
             setChatMessages(newChatMessages);
 
 
-            const response = Chatbot.getResponse(inputText);
+            const response = Chatbot.getResponse(inputText);    // responses come from external library
 
               setChatMessages([
                 ...newChatMessages,
@@ -170,32 +169,7 @@
 
 
     function ChatMessage({ message, sender }){
-        {/*const message = props.message;
-        const sender =  props.sender;*/}
-
-        {/*const { message } = props;
-        const { sender } = props;
-
-        const { message, sender } = props;*/}
-
-
- /*
-        if(sender==='robot'){
-            return(
-        <div>
-            <img src="robot.png" alt="" /> 
-
-            {message}
-            
-         </div>
-
-     );
-
-}
-     */
-
-
-
+        
         return (
 
         <div className = {sender==='user' ? 'chat-message-user' : 'chat-message-robot'}>
@@ -261,31 +235,22 @@
         const [chatMessages,setChatMessages] = React.useState([{
             message : 'hello chatbot' ,
             sender : 'user',
-            id : 'id1'
+            id : crypto.randomUUID()
         },{
             message : 'Hello! How can I help you?' ,
             sender : 'robot' ,
-            id : 'id2'
+            id : crypto.randomUUID()
 
         },{
             message : 'test',
             sender : 'user' ,
-            id : 'id3'
+            id : crypto.randomUUID()
 
         },{
             message : 'Sorry, I didnt quite understand that. Currently, I only know how to flip a coin, roll a dice, or get todays date. Let me know how I can help!', 
             sender : 'robot',
-            id : 'id4'
+            id : crypto.randomUUID()
         }]);
-        // const chatMessages = array[0];  //gives the current value of the chatMessages(the current data)
-        // const setChatMessages = array[1]; //updater function
-
-        // array destructuring
-        // it will fetch the first array value to chatMessage and second value to setChatMessage
-        
-        //const [chatMessages,setChatMessages] = array;
-
-
 
         return(
         <div className="app-container">
@@ -295,7 +260,7 @@
             />
 
              <ChatInput 
-                chatMessages = {chatMessages}
+                chatMessages    = {chatMessages}
                 setChatMessages = {setChatMessages} 
             />
         </div>
@@ -311,18 +276,19 @@
     ReactDOM.createRoot(container).render(<App />);
 
     
-    
-   
-    
-
-
-
-  
- 
-
-      
-    
     </script>
   </body>
 </html>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
