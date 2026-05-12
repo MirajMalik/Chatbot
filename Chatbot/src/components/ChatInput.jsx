@@ -25,7 +25,7 @@ import  dayjs from 'dayjs'
                     message : inputText,
                     sender  : 'user',
                     id      : crypto.randomUUID(),
-                    time    : dayjs.valueOf()
+                    time    : dayjs().valueOf()
                 }
             ]
 
