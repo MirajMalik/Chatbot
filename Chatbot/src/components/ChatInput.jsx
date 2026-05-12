@@ -1,7 +1,6 @@
 // ChatInput Component
 import { useState} from "react";
 import {  Chatbot } from 'supersimpledev'
-import './ChatInput.css';
 import  dayjs from 'dayjs'
 
     export function ChatInput({ chatMessages,setChatMessages }){
@@ -51,9 +50,9 @@ import  dayjs from 'dayjs'
         }
 
         return (
-                <div className="input-container">
+                <div className="flex mb-15">
                    <input 
-                        className = "chat-input"
+                        className = "text-4 px-4 py-3 rounded-md border grow bg-white"
                         type="text" 
                         placeholder="Send a message to Chatbot" 
                         size="30"
@@ -64,7 +63,7 @@ import  dayjs from 'dayjs'
     
                     <button
                         onClick = {sendMessage}
-                        className = "send-button"
+                        className = "bg-[#198754] text-white px-5 py-3 rounded-md ml-3 border-none text-4 cursor-pointer"
                     
                     >Send</button>
                 </div>

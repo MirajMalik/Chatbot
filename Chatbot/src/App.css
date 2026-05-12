@@ -1,15 +1,5 @@
-
-.app-container{
-    max-width: 600px;
-    margin: auto;
-    margin-top: 2px;
-    padding: 20px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(59, 71, 71);
-    height: 95vh;
-    border-radius: 5px;
-
+@import "tailwindcss";
+body {
+    background-color: rgb(71, 2, 2);
 }
 

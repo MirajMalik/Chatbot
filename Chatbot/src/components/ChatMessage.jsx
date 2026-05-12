@@ -1,24 +1,24 @@
 import robotImage from '../assets/robot.png'
 import usertImage from '../assets/user.png'
 import  dayjs from 'dayjs'
-import './ChatMessage.css';
+
 
 
 export function ChatMessage({ message, sender , time}){
       
         return (
 
-        <div className = {sender==='user' ? 'chat-message-user' : 'chat-message-robot'}>
+        <div className = {sender==='user' ? 'flex justify-end items-start' : 'flex items-start'}>
 
             {sender==='robot' &&  (
-                <img src={robotImage} className="chat-message-profile"  alt="robot" />
+                <img src={robotImage} className="w-12"  alt="robot" />
             )}
 
-            <div className="chat-message-text">
+            <div className="bg-gray-200 px-5 py-4 rounded-md mx-3 mb-5 max-w-80">
                 {message}
 
                 {time && (
-                    <div className='chat-message-time'>
+                    <div className='text-4 text-slate-600 mt-1'>
                         {dayjs(time).format('h:mma')}
                     </div>
             )}
@@ -27,7 +27,7 @@ export function ChatMessage({ message, sender , time}){
             </div>  
 
             {sender==='user'  &&   (
-                <img src={usertImage} className="chat-message-profile" alt="user"  />
+                <img src={usertImage} className="w-12" alt="user"  />
              )}
       
         </div>

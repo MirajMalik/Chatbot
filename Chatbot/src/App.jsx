@@ -2,15 +2,13 @@ import { useState, useEffect } from 'react'
 import { ChatInput } from './components/ChatInput'
 import { ChatMessages } from './components/ChatMessages'
 import {  Chatbot } from 'supersimpledev'
-
-
 import './App.css'
    
 // main component
 function App(){
 
     const [chatMessages,setChatMessages] = useState([]);
-    
+
     useEffect(() => {                            
         Chatbot.addResponses({
             'goodbye' : 'Goodbye. Have a great day!',
@@ -24,7 +22,7 @@ function App(){
     },[])
 
     return(
-    <div className="app-container">
+    <div className="max-w-xl mx-auto mt-3 p-5 h-[95vh] flex flex-col bg-slate-900 rounded-sm">
 
         <ChatMessages 
             chatMessages = {chatMessages} 

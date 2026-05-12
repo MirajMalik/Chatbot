@@ -1,6 +1,6 @@
     import { useRef, useEffect} from "react";
     import   { ChatMessage }  from "./ChatMessage";
-    import './ChatMessages.css';
+    
   
     // ChatMessages component
 
@@ -19,7 +19,7 @@
 
         return(
             // this div will save into the chatMessagesRef container .
-            <div className="chat-messages-container" ref={chatMessagesRef}>     
+            <div className="grow mt-6 overflow-auto scrollbar-none" ref={chatMessagesRef}>     
 
             {chatMessages.map((chatMessage) => {
                 return(
