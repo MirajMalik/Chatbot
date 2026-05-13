@@ -1,11 +1,9 @@
     import { useRef, useEffect} from "react";
-    import   { ChatMessage }  from "./ChatMessage";
+    import   { ChatMessage }  from "../chat/ChatMessage";
     
-  
-    // ChatMessages component
-
     export function ChatMessages({ chatMessages }){
         const chatMessagesRef = useRef(null);
+
 
         useEffect(() => {                                    // useEffect for component to be created first . only then we can access the html .
             const containerElem = chatMessagesRef.current;   // this variable contains div HTML element  
@@ -19,15 +17,14 @@
 
         return(
             // this div will save into the chatMessagesRef container .
-            <div className="grow mt-6 overflow-auto scrollbar-none" ref={chatMessagesRef}>     
+            <div className="mt-6 flex-1 overflow-y-auto scrollbar-none p-3" ref={chatMessagesRef}>     
 
             {chatMessages.map((chatMessage) => {
+            // console.log("sender" +chatMessage);
                 return(
-                    <ChatMessage 
-                        message = {chatMessage.message}
-                        sender  = {chatMessage.sender} 
-                        time    = {chatMessage.time} 
-                        key     = {chatMessage.id}
+                    <ChatMessage    
+                        key = {chatMessage.id}
+                        chatMessage = {chatMessage}
                     />        
                 );
 
